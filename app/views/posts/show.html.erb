@@ -1,0 +1,36 @@
+<div class="container mt-4">
+  <div class="row">
+    <!--左側-->
+    <div class="col-md-4 text-center">
+      <div class="card">
+        <h5 class="card-title">Title: <%= @post.title %></h5>
+        <div class="card-body">
+          <%if @post.image?%>
+            <%= image_tag(@post.image.to_s, size: '200x200') %>
+            <!--<img src='<#%= post.image.to_s %>' alt="投稿された画像" width="200" height="200">-->
+          <% else %>
+            <img src="https://res.cloudinary.com/hammpsrnb/image/upload/v1591745654/m_e_others_500_o0fyvv.png" alt="投稿された画像" width="200" height="200">
+          <% end %>
+          <p class="card-text">User: <%= link_to @post.user.name, user_path(@post.user) %></p>
+          <%#= link_to 'Edit', edit_post_path(@post) %>
+        </div>
+      </div>
+    </div>
+    <!--右側-->
+    <div class="col-md-6 col-md-offset-2">
+      <div class="card">
+        <h5 class="card-header">Comment</h5>
+        <div class="card-body">
+          <%= @post.comment %>
+        </div>
+      </div>
+      <% if current_user == @post.user %>
+        <div class="text-right"> 
+          <%= link_to 'Edit', edit_post_path(@post) %>
+        </div>
+      <% end %>
+    </div>
+  
+  
+  </div>
+</div>

@@ -1,0 +1,77 @@
+<div class="container">
+  <!--いいねランキング-->
+  <h3 class="mt-4">Likes Top3</h3>
+  <div class="row border">
+    <% @all_ranks.each.with_index(1) do |post, i| %>
+      <div class="col-md-4 text-center mt-5 mb-5"> 
+        <h5 class="text-left">No.<%= i %></h5>
+        <h5 class="text-left">Likes:<%= post.favorites.count %></h5>
+        
+        <div>
+          <h3>Title: <%= link_to post.title, post %>
+        </div>
+        <div class="border">
+          <span class="user_tooltip" data-toggle="tooltip" title="comment: <%= post.comment %>">
+            <%if post.image?%>
+              <%= image_tag(post.image.to_s, size: '200x200') %>
+            <% else %>
+              <img src="https://res.cloudinary.com/hammpsrnb/image/upload/v1591745654/m_e_others_500_o0fyvv.png" alt="投稿された画像" width="200" height="200">
+            <% end %>
+          </span>
+        </div>
+        <div>
+            <!--User: <%#= post.user.name %>-->
+          User: <%= link_to post.user.name, user_path(post.user) %>
+        </div>
+        <div>
+          <%= render 'favorites/like_button', post: post %>
+        </div>
+          
+      </div>
+    <% end %>
+  </div>
+  
+  
+  
+  <!--投稿一覧-->
+  <h3 class="mt-4">Post List</h3>
+  <div class="row border">  
+    
+    <% @posts.each do |post| %>
+      <div class="col-md-4 text-center mt-5 mb-5"> 
+        <div>
+          <h3>Title: <%= link_to post.title, post %>
+        </div>
+        <div class="border">
+          <span class="user_tooltip" data-toggle="tooltip" title="comment: <%= post.comment %>">
+            <%if post.image?%>
+              <%= image_tag(post.image.to_s, size: '200x200') %>
+            <% else %>
+              <img src="https://res.cloudinary.com/hammpsrnb/image/upload/v1591745654/m_e_others_500_o0fyvv.png" alt="投稿された画像" width="200" height="200">
+            <% end %>
+          </span>
+        </div>
+        <div>
+            <!--User: <%#= post.user.name %>-->
+          User: <%= link_to post.user.name, user_path(post.user) %>
+        </div>
+        <div>
+          <%= render 'favorites/like_button', post: post %>
+        </div>
+          
+      </div>
+    <% end %>
+  </div>
+  <div class="pull-right mt-3">
+    <%= paginate @posts %>
+  </div>
+</div>
+  
+  
+<script>
+  $(function(){
+    $(".user_tooltip").tooltip({
+      placement : 'top'
+    });
+  })
+</script>
