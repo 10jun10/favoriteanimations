@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, except: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :likes]
+  before_action :correct_user, only: [:edit, :update]
   
   def index
     @users = User.order(id: :desc).page(params[:page]).per(18)
@@ -52,5 +53,12 @@ class UsersController < ApplicationController
   
   def set_user
     @user = User.find(params[:id])
+  end
+  
+  def correct_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to root_url
+    end
   end
 end
