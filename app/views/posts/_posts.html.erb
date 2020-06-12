@@ -2,7 +2,7 @@
   <% posts.each do |post| %>
     <div class="col-md-6 text-center">
       <div class="border">
-        <span class="user_tooltip" data-toggle="tooltip" title="comment: <%= post.comment %>">
+        <span class="user_tooltip" data-toggle="tooltip" title="comment:<%= post.comment %>">
           <%if post.image?%>
             <%= image_tag(post.image.to_s, size: '200x200') %>
             <!--<img src='<#%= post.image.to_s %>' alt="投稿された画像" width="200" height="200">-->
@@ -12,7 +12,7 @@
         </span>
       </div>
       
-      <h3>Title: <%= link_to post.title, post %>
+      <h3>Title: <%= link_to post.title.truncate(10), post %></h3>
       <div class="row">
         <div class="col-4 text-center">
           <!--お気に入りボタン-->

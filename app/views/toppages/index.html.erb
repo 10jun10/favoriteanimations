@@ -1,11 +1,10 @@
-
-  <!--ログイン後-->
+<!--ログイン後-->
   <% if logged_in? %>
     <div class="container mt-4">
       <div class="row">
         <!--左側・フォーム-->
         <aside class="col-sm-4">
-          <%= render 'layouts/error_messages',model: @post%>
+          <%= render 'layouts/error_messages',model: @post %>
           <h3>Let's Record Animation!</h3>
           <%= form_with(model: @post, local: true) do |f| %>
             <div class="form-group">
@@ -24,7 +23,7 @@
         </aside>
         <!--右側・一覧-->
         <div class="col-sm-8">
-          <%= render 'posts/posts', posts: @posts%>
+          <%= render 'posts/posts', posts: @posts %>
         </div>
       </div>
     </div>
