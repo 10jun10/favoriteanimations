@@ -8,7 +8,7 @@
         <h5 class="text-left">Likes:<%= post.favorites.count %></h5>
         
         
-        <h3>Title: <%= link_to post.title.truncate(10), post %></h3>
+        <h3><%= link_to post.title.truncate(10), post %></h3>
         <div class="border">
           <span class="user_tooltip" data-toggle="tooltip" title="comment: <%= post.comment %>">
             <%if post.image?%>
@@ -39,7 +39,7 @@
     <% @posts.each do |post| %>
       <div class="col-md-4 text-center mt-5 mb-5"> 
         <div>
-          <h3>Title: <%= link_to post.title.truncate(10), post %>
+          <h3><%= link_to post.title.truncate(10), post %>
         </div>
         <div class="border">
           <span class="user_tooltip" data-toggle="tooltip" title="comment: <%= post.comment %>">

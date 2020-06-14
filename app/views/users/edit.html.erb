@@ -15,6 +15,18 @@
           </div>
           <%= f.file_field :image_name %>
         </div>
+        <div class="form-group">
+          <%= f.label :email, 'Email' %>
+          <%= f.email_field :email, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password, 'Password' %>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password_confirmation, 'Confirmation' %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </div>
         <%= f.submit 'Save', class: 'btn btn-primary btn-block' %>
       <% end %>
     </div>
