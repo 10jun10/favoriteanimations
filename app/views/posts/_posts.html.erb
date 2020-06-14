@@ -1,6 +1,6 @@
 <div class="row mt-2">
   <% posts.each do |post| %>
-    <div class="col-md-6 text-center">
+    <div class="col-md-4 text-center">
       <div class="border">
         <span class="user_tooltip" data-toggle="tooltip" title="comment:<%= post.comment %>">
           <%if post.image?%>
@@ -13,23 +13,23 @@
       </div>
       <div class="text-left">
         <h3><%= link_to post.title.truncate(10), post %></h3>
-        <div class="row mb-2">
-          <div class="col-4 text-center">
+      </div>
+      <div class="text-center mb-2">
             <!--お気に入りボタン-->
-            <%= render 'favorites/like_button', post: post %>
-          </div>
-          <div class="col-4 text-center">
-            <!--編集ボタン-->
-            <% if current_user == post.user %>
-              <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-primary btn-block' %>
-            <% end %>
-          </div>
-          <div class="col-4 text-center">
-            <!--デリートボタン-->
-            <% if current_user == post.user %>
-              <%= link_to "Delete", post, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-block' %>
-            <% end %>
-          </div>
+        <%= render 'favorites/like_button', post: post %>
+      </div>
+      <div class="row mb-2">
+        <div class="col-6 text-center">
+              <!--編集ボタン-->
+          <% if current_user == post.user %>
+            <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-primary btn-block' %>
+          <% end %>
+        </div>
+        <div class="col-6 text-center">
+              <!--デリートボタン-->
+          <% if current_user == post.user %>
+            <%= link_to "Delete", post, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-block' %>
+          <% end %>
         </div>
       </div>
     </div>
