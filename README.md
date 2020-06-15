@@ -1,24 +1,20 @@
-# README
+# Favorite Animation
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+アニメ作品の感想を記録・共有可能サービス。
 
-Things you may want to cover:
+https://favoriteanimation.herokuapp.com/
 
-* Ruby version
 
-* System dependencies
+## 環境
 
-* Configuration
+* 言語(Ruby 2.5.3)
+* フレームワーク(Rails 5.2.4.3)
+* 開発(Cloud9)
 
-* Database creation
+## 機能・技術
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* 画像(carrierwave,mini_magick,cloudinary)
+* ページネーション(kaminari)
+* アニメーション(bootstrap-tooltip-rails,jquery-rails)
+* インフラ(Heroku)
+* デザイン(Bootstrap)
