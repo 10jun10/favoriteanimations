@@ -36,7 +36,7 @@
   <!--検索機能-->
   <!--<p>post search</p>-->
     <%= form_tag(posts_path, :method => 'get', :class => 'text-right mb-2') do %>
-      <%= text_field_tag :search %>
+      <%= text_field_tag :search, '', placeholder: 'title' %>
       <%= submit_tag 'Search', :title => nil %>
     <% end %>
   <div class="row border">  
