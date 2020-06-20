@@ -31,9 +31,14 @@
   </div>
   
   
-  
   <!--投稿一覧-->
   <h3 class="mt-4">Post List</h3>
+  <!--検索機能-->
+  <!--<p>post search</p>-->
+    <%= form_tag(posts_path, :method => 'get', :class => 'text-right mb-2') do %>
+      <%= text_field_tag :search %>
+      <%= submit_tag 'Search', :title => nil %>
+    <% end %>
   <div class="row border">  
     
     <% @posts.each do |post| %>

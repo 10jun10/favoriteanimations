@@ -4,7 +4,10 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :show, :update]
   
   def index
-    @posts = Post.order(id: :desc).page(params[:page]).per(18)
+    # @posts = Post.order(id: :desc).page(params[:page]).per(18)
+    # 検索機能
+    # @posts = Post.where(activated: true).page(params[:page]).per(18).search(params[:search])
+    @posts = Post.page(params[:page]).per(18).search(params[:search])
     # ランキング機能
     @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
     # @count_fav = post.
